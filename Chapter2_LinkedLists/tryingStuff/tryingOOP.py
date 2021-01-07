@@ -9,4 +9,5 @@ class car:
 
 myCar = car('audi', 10000)
 
-myCar.printCarProperties
+myCar.printCarProperties()
+print(car.classOwner)
