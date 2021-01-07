@@ -13,9 +13,3 @@ class Node:
         while node != None:
             print(node.value) # access the node value
             node = node.next # move on to the next node
-
-headerNode = Node(None, 15)
-firstNode = Node(headerNode, 33)
-secondNode = Node(firstNode, 44)
-
-secondNode.traverse()
