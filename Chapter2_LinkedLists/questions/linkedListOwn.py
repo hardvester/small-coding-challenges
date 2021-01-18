@@ -40,11 +40,35 @@ class LinkedList:
             itr = itr.next
         return count
 
+    def removeAt(self, index):
+        ll_length = self.getLength()
+        if (index == 0):
+            self.head = self.head.next
+        elif (index == ll_length-1):
+            itr = self.head
+            while itr:
+                if (itr.next.next == None):
+                    itr.next = None
+                    return
+        else:
+            counter = 1
+            itr = self.head
+            while itr:
+                # do something # index = 1
+                if (counter == index):
+                    itr = iter.next.next
+                    return
+                counter += 1
+                
+
+if __name__ == "__main__":
+    ll = LinkedList()
+    ll.insert_values(['red', 'bed', 'ced'])
+    ll.printNodes()
+    print(ll.getLength())
 
 
-ll = LinkedList()
-ll.insert_values(['red', 'bed', 'ced'])
-ll.printNodes()
+
 
 
 
