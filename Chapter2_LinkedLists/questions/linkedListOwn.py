@@ -50,18 +50,30 @@ class LinkedList:
             itr = self.head
             while itr:
                 if (counter == index):
-                    print(str(counter) + 'XXX')
                     itr.next = itr.next.next
                     return
                 counter += 1
                 itr = itr.next
-                
+    
+    def insertAt(self, index, data):
+        if (index == 0):
+            self.head = Node(data, self.head)
+        else:
+            counter = 1
+            itr = self.head
+            while itr:
+                if (index == counter):
+                    itr.next = Node(data, itr.next)
+                    return
+                counter += 1
+                itr = itr.next
+               
 
 if __name__ == "__main__":
     ll = LinkedList()
     ll.insert_values(['red', 'bed', 'ced'])
     ll.printNodes()
-    ll.removeAt(2)
+    ll.insertAt(3, 'XXX')
     ll.printNodes()
     print(ll.getLength())
 
