@@ -1,3 +1,5 @@
+# this video helped me: https://www.youtube.com/watch?v=qp8u-frRAnU
+
 class Node:
     def __init__(self, data=None, next=None):
         self.data = data
