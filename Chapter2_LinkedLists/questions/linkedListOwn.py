@@ -44,24 +44,17 @@ class LinkedList:
         ll_length = self.getLength()
         if (index == 0):
             self.head = self.head.next
-    
             return
-        elif (index == ll_length-1):
-            itr = self.head
-            while itr:
-                if (itr.next.next == None):
-                    itr.next = None
-                    return
-                itr = itr.next
         else:
             counter = 1
             itr = self.head
             while itr:
-                # do something # index = 1
                 if (counter == index):
-                    itr = iter.next.next
+                    print(str(counter) + 'XXX')
+                    itr.next = itr.next.next
                     return
                 counter += 1
+                itr = itr.next
                 
 
 if __name__ == "__main__":
