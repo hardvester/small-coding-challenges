@@ -44,12 +44,15 @@ class LinkedList:
         ll_length = self.getLength()
         if (index == 0):
             self.head = self.head.next
+    
+            return
         elif (index == ll_length-1):
             itr = self.head
             while itr:
                 if (itr.next.next == None):
                     itr.next = None
                     return
+                itr = itr.next
         else:
             counter = 1
             itr = self.head
@@ -64,6 +67,8 @@ class LinkedList:
 if __name__ == "__main__":
     ll = LinkedList()
     ll.insert_values(['red', 'bed', 'ced'])
+    ll.printNodes()
+    ll.removeAt(2)
     ll.printNodes()
     print(ll.getLength())
 
