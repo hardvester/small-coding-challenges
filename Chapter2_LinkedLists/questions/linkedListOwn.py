@@ -72,12 +72,16 @@ class LinkedList:
                
 
 if __name__ == "__main__":
+
+    
+
     ll = LinkedList()
     ll.insert_values(['red', 'bed', 'ced'])
     ll.printNodes()
     ll.insertAt(3, 'XXX')
     ll.printNodes()
     print(ll.getLength())
+
 
 
 
