@@ -1,14 +1,21 @@
 from linkedListOwn import Node, LinkedList
 
+# for us k = 1 is the last node, k = 0 is undefined
 def kthToLast(LinkedList, k):
-    itr = LinkedList.head
-    counter = 0
-    while True:
-        if counter == k:
-            LinkedList.head = itr
-            return LinkedList
-        counter += 1
-        itr = itr.next
+    p1 = LinkedList.head
+    p2 = LinkedList.head
+
+    for i in range(0, k-1):
+        p1 = p1.next
+        if p1.next == None:
+            return # I should return something that range k is too big
+
+    while p1:
+        p1 = p1.next
+        p2 = p2.next
+    
+
+
 
 
 if __name__ == "__main__":    
