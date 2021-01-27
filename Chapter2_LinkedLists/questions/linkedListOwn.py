@@ -72,7 +72,9 @@ class LinkedList:
                
 
 if __name__ == "__main__":
-
+    
+    test.next = Node(2,None)
+    print(test.next.data)
     
 
     ll = LinkedList()
