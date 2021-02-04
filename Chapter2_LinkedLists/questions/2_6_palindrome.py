@@ -5,7 +5,7 @@ def reverseLL(ll):
     previous = Node(itr.data, None)
     if itr.next is None:
         return {'ll': LinkedList(previous), 'll_len': 1}
-    len = 1   
+    ll_len = 1   
     while itr.next:
         temp = Node(itr.next.data, previous)
         previous = temp
@@ -16,10 +16,10 @@ def reverseLL(ll):
 
 def isPalindrome(ll):
     reversedLL  = reverseLL(ll)
+    return
 
 
 if __name__ == "__main__":
     ll1 = LinkedList()
-    ll1.insert_values([7])
-    ll1.printNodes()
-    reverseLL(ll1).printNodes()
+    ll1.insert_values([7,2])
+    print(reverseLL(ll1)["ll_len"])
