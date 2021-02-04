@@ -4,14 +4,18 @@ def reverseLL(ll):
     itr = ll.head
     previous = Node(itr.data, None)
     if itr.next is None:
-        return LinkedList(previous)
-       
+        return {'ll': LinkedList(previous), 'll_len': 1}
+    len = 1   
     while itr.next:
         temp = Node(itr.next.data, previous)
         previous = temp
         itr = itr.next
-    
-    return LinkedList(temp)
+        ll_len += 1
+
+    return {'ll': LinkedList(temp), 'll_len': ll_len}
+
+def isPalindrome(ll):
+    reversedLL  = reverseLL(ll)
 
 
 if __name__ == "__main__":
