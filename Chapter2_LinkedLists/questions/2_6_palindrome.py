@@ -16,10 +16,9 @@ def reverseLL(ll):
 
 def isPalindrome(ll):
     reversedLL  = reverseLL(ll)
- 
     itr1 = ll.head
     itr2 = reversedLL["ll"].head
-    for _ in range(reversedLL["ll_len"]//2):
+    for _ in range(ceil(reversedLL["ll_len"]/2)):
         print(itr1.data, itr2.data)
         if itr1.data != itr2.data:
             print('not a palindrome')
@@ -34,5 +33,6 @@ def isPalindrome(ll):
 
 if __name__ == "__main__":
     ll1 = LinkedList()
-    ll1.insert_values(['g','e','g'])
+    ll1.insert_values(['g','e','g', 'f'])
     isPalindrome(ll1)
+    print(3/2)
