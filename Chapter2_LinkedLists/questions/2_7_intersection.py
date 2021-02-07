@@ -6,12 +6,18 @@ def findIntersectNodes(ll1, ll2):
     length_diff = ll1_length - ll2_length
 
     if length_diff>0:
-        starter_ll = ll1
+        longer_ll = ll1
+        shorter_ll = ll2
     elif length_diff<0:
-        starter_ll = ll2
+        longer_ll = ll1
+        shorter_ll = ll2
     else:
         paralelCompare(ll1, ll2)
         # run in paralel
+
+def unequalLengthComparison(shorterLL, longerLL, length_diff):
+    
+
 
 def equalLengthComparison(ll1, ll2):
     # supposing that the lengths are equal
