@@ -6,13 +6,11 @@ def findIntersectNodes(ll1, ll2):
     length_diff = ll1_length - ll2_length
 
     if length_diff>0:
-        longer_ll = ll1
-        shorter_ll = ll2
+        return unequalLengthComparison(ll2, ll1, length_diff)
     elif length_diff<0:
-        longer_ll = ll1
-        shorter_ll = ll2
+        return unequalLengthComparison(ll1, ll2, abs(length_diff))
     else:
-        paralelCompare(ll1, ll2)
+        return equalLengthComparison(ll1, ll2)
         # run in paralel
 
 def unequalLengthComparison(shorterLL, longerLL, length_diff):
@@ -21,9 +19,9 @@ def unequalLengthComparison(shorterLL, longerLL, length_diff):
     for _ in range(length_diff):
         if itr == first_node_shorterLL:
             return itr.data # we don't need the data property, I added it only for testing
-    paralelCompare(shorterLL, LinkedList(longerLL))
+        itr = itr.next
+    equalLengthComparison(shorterLL, LinkedList(longerLL))
     
-
 
 def equalLengthComparison(ll1, ll2):
     # supposing that the lengths are equal
@@ -36,9 +34,6 @@ def equalLengthComparison(ll1, ll2):
         itr2 = itr2.next
     print('the linked lists do not intersect')
 
-
-
-
 if __name__ == "__main__":    
     intersect = Node('I am the intersect xD', Node('z', None))
     ll1 = LinkedList(Node('p', intersect))
@@ -48,7 +43,7 @@ if __name__ == "__main__":
     ll1.printNodes()
     ll2.printNodes()
 
-    print(equalLengthComparison(ll1, ll2))
+    print(findIntersectNodes(ll1, ll2))
 
 
 
