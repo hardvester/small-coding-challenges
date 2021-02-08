@@ -20,9 +20,8 @@ def unequalLengthComparison(shorterLL, longerLL, length_diff):
         if itr == first_node_shorterLL:
             return itr.data # we don't need the data property, I added it only for testing
         itr = itr.next
-    equalLengthComparison(shorterLL, LinkedList(longerLL))
+    return equalLengthComparison(shorterLL, LinkedList(itr))
     
-
 def equalLengthComparison(ll1, ll2):
     # supposing that the lengths are equal
     itr1 = ll1.head
@@ -37,13 +36,10 @@ def equalLengthComparison(ll1, ll2):
 if __name__ == "__main__":    
     intersect = Node('I am the intersect xD', Node('z', None))
     ll1 = LinkedList(Node('p', intersect))
-    # ll2 = LinkedList(Node('d', Node('r', intersect)))
-    ll2 = LinkedList(Node('z', intersect))
+    ll2 = LinkedList(Node('d', Node('r', intersect)))
+    # ll2 = LinkedList(Node('z', intersect))
 
     ll1.printNodes()
     ll2.printNodes()
 
     print(findIntersectNodes(ll1, ll2))
-
-
-
