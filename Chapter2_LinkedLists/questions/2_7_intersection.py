@@ -1,6 +1,7 @@
 from linkedListOwn import Node, LinkedList
 
 def findIntersectNodes(ll1, ll2):
+    # even better would be to compare the tail of the LLs so if they do not much, I can exit immedietly
     ll1_length = ll1.getLength()
     ll2_length = ll2.getLength()
     length_diff = ll1_length - ll2_length
