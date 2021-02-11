@@ -11,19 +11,25 @@ class Stack:
     def __init__(self, top):
         self.top = top
 
-    def remove(self):
+    def pop(self):
         self.top = self.top.next
     
-    def showTop(self):
+    def peep(self):
         print(self.top.data)
     
-    def add(self, data):
+    def push(self, data):
         self.top.next = self.top
         self.top.data = data
 
     def isEmpty(self):
         if self.top.data is None:
             print('isEmpty')
-
-if __name__ == "__main__":
+        else:
+            print('isn\'t empty')
     
+if __name__ == "__main__":
+    stack = Stack(Node('x'))
+    stack.push('3')
+    stack.peep()
+    stack.isEmpty()
+
