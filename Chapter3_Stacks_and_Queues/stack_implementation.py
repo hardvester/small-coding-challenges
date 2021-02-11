@@ -12,6 +12,8 @@ class Stack:
         self.top = top
 
     def pop(self):
+        if self.top is None:
+            throw
         self.top = self.top.next
     
     def peep(self):
