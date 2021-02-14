@@ -17,17 +17,14 @@ class Stack:
         self.top = self.top.next
     
     def peep(self):
-        print(self.top.data)
+        return self.top.data
     
     def push(self, data):
         self.top.next = self.top
         self.top.data = data
 
     def isEmpty(self):
-        if self.top.data is None:
-            print('isEmpty')
-        else:
-            print('isn\'t empty')
+        return self.top.data is None
     
 if __name__ == "__main__":
     stack = Stack(Node('x'))
