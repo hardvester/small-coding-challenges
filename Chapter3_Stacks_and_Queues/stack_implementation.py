@@ -13,7 +13,7 @@ class Stack:
 
     def pop(self):
         if self.top is None:
-            throw
+            raise Exception('Can\'t pop a node on a empty Stack')
         self.top = self.top.next
     
     def peep(self):
