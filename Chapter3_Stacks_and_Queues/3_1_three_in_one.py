@@ -17,14 +17,22 @@ class multiStack:
         index = 0
         while True:
             if index > self.stack_size-1:
+                # HOW TO TREAT THE ERROR
                 raise IndexError('Stack number ' + stack_number + ' is full')
             elif self.array[index + offset] is None:
-                return index
-            index += 1    
+                return index + offset
+            index += 1
+    
+    def peep(self, stack_number):
+        
 
 if __name__ == "__main__":
-    new_multi_stack = multiStack(5)
+    new_multi_stack = multiStack(3)
     new_multi_stack.push(4, 1)
     new_multi_stack.push('a', 2)
+    new_multi_stack.push('c', 2)
+    new_multi_stack.push('c', 2)
+    new_multi_stack.push('c', 2)
+
     print(new_multi_stack.array)
         
