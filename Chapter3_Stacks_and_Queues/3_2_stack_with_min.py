@@ -4,7 +4,6 @@ class Stack:
         self.min = []
 
     def push(self, data):
-        print(self.min)
         if not len(self.min):
             self.min.append(data)
         elif data <= self.min[-1]: 
