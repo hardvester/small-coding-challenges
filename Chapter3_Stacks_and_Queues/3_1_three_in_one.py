@@ -11,7 +11,8 @@ class multiStack:
 
     def push(self, value, stack_number):
         self.array[self.index(stack_number)] = value
-
+    
+    # this is not good as we should be able to achieve O(1) performance to push a value to the stack, leaving it here for educative purposes
     def index(self, stack_number):
         offset = (stack_number - 1) * self.stack_size
         index = 0
