@@ -14,12 +14,18 @@ class multiStack:
     def push(self, value, stack_number):
         if self.offset[stack_number-1] >= self.stack_size:
             raise OverflowError('Stackoverflow')
-        self.array[self.offset[stack_number-1]] = value
-        self.offset[stack_number-1] += 1
+        self.array[self.stack_size*(stack_number-1) + self.offset[(stack_number-1)]] = value
+        self.offset[(stack_number-1)] += 1
     
     def peep(self, stack_number):
         # seems we should shift to the left
-        return self.array[self.offset[stack_number-1]]
+        return self.array[(stack_number-1) * self.stack_size + self.offset[stack_number-1]-1]
+
+    def isEmpty(self, stack_number):
+        return self.offset[stack_number-1] == True
+
+    def pop(self, stack_number):
+        
     
     # this is not good as we should be able to achieve O(1) performance to push a value to the stack, leaving it here for educative purposes
     def index(self, stack_number):
