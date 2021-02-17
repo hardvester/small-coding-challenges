@@ -8,9 +8,18 @@ class multiStack:
         self.number_of_stacks = 3
         self.stack_size = stack_size
         self.array = [None] * self.number_of_stacks * self.stack_size
+        self.offset = [0] * self.number_of_stacks
 
+    # note the constant time it take to push a value to the stack
     def push(self, value, stack_number):
-        self.array[self.index(stack_number)] = value
+        if self.offset[stack_number-1] >= self.stack_size:
+            raise OverflowError('Stackoverflow')
+        self.array[self.offset[stack_number-1]] = value
+        self.offset[stack_number-1] += 1
+    
+    def peep(self, stack_number):
+        # seems we should shift to the left
+        return self.array[self.offset[stack_number-1]]
     
     # this is not good as we should be able to achieve O(1) performance to push a value to the stack, leaving it here for educative purposes
     def index(self, stack_number):
@@ -23,9 +32,6 @@ class multiStack:
             elif self.array[index + offset] is None:
                 return index + offset
             index += 1
-    
-    def peep(self, stack_number):
-        
 
 if __name__ == "__main__":
     new_multi_stack = multiStack(3)
@@ -33,7 +39,6 @@ if __name__ == "__main__":
     new_multi_stack.push('a', 2)
     new_multi_stack.push('c', 2)
     new_multi_stack.push('c', 2)
-    new_multi_stack.push('c', 2)
 
-    print(new_multi_stack.array)
+    print(new_multi_stack.peep(2))
         
