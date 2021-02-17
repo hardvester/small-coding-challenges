@@ -19,32 +19,28 @@ class multiStack:
     
     def peep(self, stack_number):
         # seems we should shift to the left
+        if self.isEmpty(stack_number):
+            raise Exception('Stack is empty')
         return self.array[(stack_number-1) * self.stack_size + self.offset[stack_number-1]-1]
 
     def isEmpty(self, stack_number):
         return self.offset[stack_number-1] == True
 
     def pop(self, stack_number):
-        
-    
-    # this is not good as we should be able to achieve O(1) performance to push a value to the stack, leaving it here for educative purposes
-    def index(self, stack_number):
-        offset = (stack_number - 1) * self.stack_size
-        index = 0
-        while True:
-            if index > self.stack_size-1:
-                # HOW TO TREAT THE ERROR
-                raise IndexError('Stack number ' + stack_number + ' is full')
-            elif self.array[index + offset] is None:
-                return index + offset
-            index += 1
+        # treating the case when we try to pop an empty array
+        if self.isEmpty(stack_number):
+            raise Exception('Stack is empty')
+        self.array[(stack_number-1) * self.stack_size + self.offset[stack_number-1]-1] = None
+        self.offset[(stack_number-1)] -= 1
 
 if __name__ == "__main__":
     new_multi_stack = multiStack(3)
     new_multi_stack.push(4, 1)
     new_multi_stack.push('a', 2)
-    new_multi_stack.push('c', 2)
+    new_multi_stack.push('b', 2)
     new_multi_stack.push('c', 2)
 
+    new_multi_stack.pop(2)
     print(new_multi_stack.peep(2))
+
         
