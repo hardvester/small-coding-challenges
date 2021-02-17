@@ -1,7 +1,6 @@
 # we will have to implement for this methods that are used for a stack: peep(), pop(), push(), isEmpty()
 # we implement the easier approach, i.e. approach where we pre allocate a fixed ammount of memory for each stack
 
-
 class multiStack:
 
     def __init__(self, stack_size):
@@ -10,7 +9,7 @@ class multiStack:
         self.array = [None] * self.number_of_stacks * self.stack_size
         self.offset = [0] * self.number_of_stacks
 
-    # note the constant time it take to push a value to the stack
+    # note the constant time it takes to push/peep/pop a value to the stack
     def push(self, value, stack_number):
         if self.offset[stack_number-1] >= self.stack_size:
             raise OverflowError('Stackoverflow')
@@ -32,6 +31,8 @@ class multiStack:
             raise Exception('Stack is empty')
         self.array[(stack_number-1) * self.stack_size + self.offset[stack_number-1]-1] = None
         self.offset[(stack_number-1)] -= 1
+
+
 
 if __name__ == "__main__":
     new_multi_stack = multiStack(3)
