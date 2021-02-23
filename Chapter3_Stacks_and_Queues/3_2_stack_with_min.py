@@ -34,6 +34,7 @@ class StackMin:
 
 
 if __name__ == "__main__":
+
     stack = StackMin()
     stack.push(5)
     stack.push(6)

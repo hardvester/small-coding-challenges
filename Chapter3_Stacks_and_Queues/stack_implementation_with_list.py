@@ -14,15 +14,19 @@ class Stack:
         return self.items == []
 
     def peep(self):
+        if self.isEmpty():
+            raise Exception('Stack empty')
         return self.items[len(self.items) - 1]
 
 
 if __name__ == "__main__":
+    
     stack = Stack()
     stack.push('xx')
-    print(stack.isEmpty())
-    print(stack.peep())
-    stack.pop()
-    stack.pop()
+    stack.peep()
+    # print(stack.isEmpty())
+    # print(stack.peep())
+    # stack.pop()
+    # stack.pop()
 
 
