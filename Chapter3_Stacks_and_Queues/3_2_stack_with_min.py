@@ -26,7 +26,7 @@ class StackMin:
         return self.items[len(self.items) - 1]
 
     def get_min(self):
-        if self.isEmpty:
+        if self.isEmpty():
             raise Exception('Stack is empty')
         return self.min[-1]
 
