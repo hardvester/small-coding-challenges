@@ -1,4 +1,4 @@
-class Stack:
+class StackMin:
     def __init__(self):
         self.items = []
         self.min = []
@@ -30,9 +30,11 @@ class Stack:
             raise Exception('Stack is empty')
         return self.min[-1]
 
+# trying to implement a stack where I am going to inherit the original stack implementation and extend the way how the stack is treated
+
 
 if __name__ == "__main__":
-    stack = Stack()
+    stack = StackMin()
     stack.push(5)
     stack.push(6)
     stack.push(4)
