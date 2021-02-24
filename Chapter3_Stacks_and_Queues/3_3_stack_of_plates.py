@@ -8,6 +8,5 @@ class Stack:
     def push(self, data):
         if self.counter > self.capacity:
             # I would need to create a new empty stack
-        else:
-            self.stack.append(data)
+
 
