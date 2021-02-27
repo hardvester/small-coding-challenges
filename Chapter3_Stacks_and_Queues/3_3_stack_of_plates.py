@@ -6,9 +6,17 @@ class LimitedStack:
         self.counter = 0
         self.stack_array = []
 
-    def push(self, data):
-        if self.counter > self.capacity:
-            # I would need to create a new empty stack
+    def LimitedStackPush(self, data):
+        if len(self.stack_array) == 0 or self.counter == self.capacity:
+            new_stack = Stack()
+            new_stack.push(data)
+            self.stack_array.append(new_stack)
+        else:
+            stack = self.stack_array[-1]
+            stack.push(data)
+
+    def LimitedStackPop(self):
+        
 
 
 
