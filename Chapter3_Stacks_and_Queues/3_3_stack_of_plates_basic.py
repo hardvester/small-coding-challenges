@@ -12,27 +12,29 @@ class LimitedStack:
             new_stack.push(data)
             self.stack_array.append(new_stack)
             self.counter = 1
-            print('push 1')
         else:
             stack = self.getLastStack()
             stack.push(data)
             self.counter += 1
-            print('push 2')
     def pop(self):
         # improving by destructing the last stack?
         if self.counter == 0 and len(self.stack_array) == 1:
             raise Exception('Stack empty')
         elif self.counter == 0:
-            # this is the built in pop method used for the array
             self.stack_array.pop()
             stack = self.getLastStack()
             stack.pop()
             self.counter = self.capacity - 1
-        elif self.counter > 0:
-            print('pop')
+        else:
             stack = self.getLastStack()
             stack.pop()
             self.counter -= 1
+    
+    def isEmpty(self):
+        return self.stack_array[0].isEmpty()
+
+    def peep(self):
+        return self.getLastStack().peep()
 
     def getLastStack(self):
         return self.stack_array[-1]
@@ -46,10 +48,10 @@ if __name__ == "__main__":
     limited_stack.push(1)
     limited_stack.push(2)
     limited_stack.pop()
-    limited_stack.pop()
-    limited_stack.pop()
     print(limited_stack.showStacks())
     print(limited_stack.counter)
+    print(limited_stack.isEmpty())
+    print(limited_stack.peep())
 
 
 
