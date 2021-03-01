@@ -1,3 +1,5 @@
+from stack_implementation_with_list import Stack
+
 class LimitedStack:
     def __init__(self, capacity=2):    
         self.capacity = capacity
