@@ -2,11 +2,11 @@
 # performs the pop operation on a specific sub stack
 
 from stack_implementation_with_list import Stack
-from stack import Limit
+from limited_stack_implementation import LimitedStack
 
-class LimitedStackWithIndexPop():
+class LimitedStackWithIndexPop(LimitedStack):
     
-        
+
 
 if __name__ == "__main__":
     limited_stack = LimitedStack()
