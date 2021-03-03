@@ -16,6 +16,7 @@ class LimitedStack:
             stack = self.getLastStack()
             stack.push(data)
             self.counter += 1
+    
     def pop(self):
         # improving by destructing the last stack?
         if self.counter == 0 and len(self.stack_array) == 1:
