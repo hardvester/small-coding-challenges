@@ -61,9 +61,13 @@ class LimitedStack:
             stack.pop()
             self.counter -= 1
 
-    def popAt(self, stackID):
-        pass
-    
+    def popAt(self, stackId):
+        # if last stack ==> simply pop
+        # else move around stack values
+        if stackId == len(self.stack_array)-1:
+            self.pop()
+        else:
+            
     def isEmpty(self):
         return self.stack_array[0].isEmpty()
 
