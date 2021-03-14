@@ -10,13 +10,17 @@ class Stack:
     def push(self, data):
         self.items.append(data)
         self.top = data
-        self.bottom = self.items.[0]
+        self.bottom = self.items[0]
     
     def pop(self):
-        if self.items == []:
+        if self.isEmpty():
             raise Exception('Stack empty')
         self.items.pop()
-        self.top = self.items[-1]
+        if self.isEmpty():
+            self.top = None
+            self.bottom = None
+        else:
+            self.top = self.items[-1]
     
     def isEmpty(self):
         return self.items == []
@@ -27,4 +31,9 @@ class Stack:
         return self.items[len(self.items) - 1]
 
 if __name__ == "__main__":
-    print('test')
+    stack = Stack()
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+    print(stack.bottom)
+    
