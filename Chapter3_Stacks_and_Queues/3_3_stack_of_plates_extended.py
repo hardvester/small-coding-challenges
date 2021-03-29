@@ -16,12 +16,13 @@ class Stack:
     def pop(self):
         if self.isEmpty():
             raise Exception('Stack empty')
-        self.items.pop()
+        removed_item = self.items.pop()
         if self.isEmpty():
             self.top = None
             self.bottom = None
         else:
             self.top = self.items[-1]
+        return removed_item
     
     def isEmpty(self):
         return self.items == []
@@ -53,16 +54,17 @@ class LimitedStack:
         if self.counter == 0 and len(self.stack_array) == 1:
             raise Exception('Stack empty')
         elif self.counter == 0:
-            self.stack_array.pop()
+            removed_item = self.stack_array.pop()
             stack = self.getLastStack()
             stack.pop()
             self.counter = self.capacity - 1
         else:
             stack = self.getLastStack()
-            stack.pop()
+            removed_item = stack.pop()
             self.counter -= 1
-        
+        return removed_item
 
+    # returning the poped value as usually the pop function should return the poped value
     def pop_at(self, index):
         return self.left_shift(index, True)
     
