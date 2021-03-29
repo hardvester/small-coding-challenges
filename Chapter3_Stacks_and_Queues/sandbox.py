@@ -1,3 +1,2 @@
 array = [1,2,3,4,5]
-print(array.pop())
-print(array)
+print(array[1:])
