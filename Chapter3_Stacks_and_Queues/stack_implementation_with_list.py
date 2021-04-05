@@ -8,7 +8,7 @@ class Stack:
     def pop(self):
         if self.items == []:
             raise Exception('Stack empty')
-        self.items.pop()
+        return self.items.pop()
     
     def isEmpty(self):
         return self.items == []
