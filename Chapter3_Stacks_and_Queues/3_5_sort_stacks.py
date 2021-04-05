@@ -22,10 +22,6 @@ def sortStack(main_stack):
         main_stack.push(helper_stack.pop())
     return main_stack
 
-    #return main_stack
-    # main stack : 1, 2
-    # helper stack: 3
-
 if __name__ == "__main__":
     stack = Stack()
     stack.push(1)
