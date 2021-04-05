@@ -7,20 +7,16 @@ def sortStack(main_stack):
     helper_stack.push(main_stack.pop())
     
     if helper_stack.peep() > main_stack.peep():
-        # remove the top of the main stack
-        temp = main_stack.pop()
-        while not helper_stack.isEmpty() and helper_stack.peep() > temp:
-            # transfered the value from the helper stack to the main stack
-            main_stack.push(helper_stack.pop())
-            
-            if not helper_stack.isEmpty() and helper_stack.peep() > temp:
-                continue
-            # I will need to count how many items did I push to the main stack
-            else:
-                helper_stack.push(temp)
         
-
-    
+        temp = main_stack.pop()
+        count = 0
+        while not helper_stack.isEmpty() and helper_stack.peep() > temp:
+            count += 1
+            main_stack.push(helper_stack.pop())
+        helper_stack.push(temp)
+        for _ in range(count):
+            helper_stack.push(main_stack.pop())
+        return helper_stack
     else:
         helper_stack.push(main_stack.pop())
 
@@ -35,4 +31,5 @@ if __name__ == "__main__":
     stack.push(2)
     stack.push(3)
 
-    print(sortStack(stack).peep())
+    sorted_stack = sortStack(stack)
+    print(sorted_stack.peep())
