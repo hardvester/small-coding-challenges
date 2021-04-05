@@ -4,45 +4,52 @@ class MyQueue:
     def __init__(self):
         self.stack_newest = Stack() # original stack
         self.stack_oldest = Stack() # reversed copy
+        self.active_stack = self.stack_newest
     
     def isEmpty(self):
-        return self.stack_newest.isEmpty()
+        return self.active_stack.isEmpty()
 
     def add(self, val):
-        self.stack_newest.push(val)
+        if (self.stack_newest == self.active_stack):   
+            self.stack_newest.push(val)
+        else:
+            pass
+            # copy_stack
     
     def remove(self):
+        if self.active_stack == self.stack_oldest:
+            if self.active_stack.isEmpty():
+                raise Exception('Stack is empty')
+            else:
+                self.active_stack.pop()
+        else:
+            pass
+            # copy_stack
+
         while True:
             temp = self.stack_newest.peep()
             self.stack_newest.pop()
-            if self.stack_newest.isEmpty():
-                while True:
-                    # basically here we need to copy back the values
-                    if self.stack_oldest.isEmpty():
-                        break
-                    else:
-                        self.stack_newest.push(self.stack_oldest.peep())
-                        self.stack_oldest.pop()
-                break
-            else:
-                self.stack_oldest.push(temp)
+
     
     def peek(self):
+        if self.active_stack == self.stack_newest:
+            self.copy_stack(self.stack_newest, self.stack_oldest)
+        self.active_stack.peep()    
+
+    def copy_stack(self, original_stack, new_stack):
         while True:
-            temp = self.stack_newest.peep()
-            # i would need to copy all of the values to stack_oldest just to check the
-            # last value and then copy back everything
-            return    
+            new_stack.push(original_stack.peep()) 
+            original_stack.pop()
+            if original_stack.isEmpty():
+                self.active_stack = new_stack
+                break      
 
 if __name__ == "__main__":
     test = MyQueue()
     test.add(1)
     test.add(2)
-
-    test.remove()
-    test.remove()
-
-    print(test.isEmpty())
+    print(test.stack_oldest.peep())
+    print(test.peek())
 
 
 
