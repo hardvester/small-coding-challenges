@@ -12,10 +12,9 @@ class AnimalShelter:
         self.order = 0
     
     def enqueue(self, animal):
-        # I got stuck on how to add the ordering to the queue
-        if animal.type == 'dog':
+        if animal == 'dog':
             self.dogQueue.add(Animal(animal, self.order))
-        elif animal.type == 'cat':
+        elif animal == 'cat':
             self.catQueue.add(Animal(animal, self.order))
         self.order += 1
 
@@ -27,13 +26,10 @@ class AnimalShelter:
         elif self.dogQueue.isEmpty() and self.catQueue.isEmpty():
             raise Exception('No more animals in shelter')
         else:
-            getOldest.remove()
-        
-    def getOldest(self):
-        if self.dogQueue.peek().order < self.catQueue.peek().order
-            return self.dogQueue
-        else:
-            return self.catQueue
+            if self.catQueue.peek().order < self.dogQueue.peek().order:
+                self.catQueue.remove()
+            else:
+                self.dogQueue.remove()
 
     def dequeueCat(self):
         if self.catQueue.isEmpty():
@@ -49,4 +45,11 @@ class AnimalShelter:
             
 
 if __name__ == "__main__":
-    print('')
+    animal_shelter = AnimalShelter()
+    animal_shelter.enqueue('cat')
+    animal_shelter.enqueue('dog')
+    animal_shelter.enqueue('dog')
+    animal_shelter.enqueue('dog') 
+    animal_shelter.dequeueAny()
+    print(animal_shelter.catQueue.peek())
+
