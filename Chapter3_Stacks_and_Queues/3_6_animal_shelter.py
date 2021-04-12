@@ -39,13 +39,14 @@ class AnimalShelter:
         if self.catQueue.isEmpty():
             raise Exception('No more cats available')
         else:
+            self.catQueue.remove()
+
+    def dequeueDog(self):
+        if self.dogQueue.isEmpty():
+            raise Exception('No more cats available')
+        else:
+            self.dogQueue.remove()
             
-        
-        
-
-
-
-
 
 if __name__ == "__main__":
-    pass
+    print('')
