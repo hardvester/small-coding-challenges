@@ -19,10 +19,27 @@ class AnimalShelter:
             self.catQueue.add(Animal(animal, self.order))
         self.order += 1
 
-    def dequeue(self):
+    def dequeueAny(self):
+        if self.dogQueue.isEmpty():
+            self.catQueue.remove()
+        elif self.catQueue.isEmpty():
+            self.dogQueue.remove()
+        elif self.dogQueue.isEmpty() and self.catQueue.isEmpty():
+            raise Exception('No more animals in shelter')
+        else:
+            getOldest.remove()
         
-
     def getOldest(self):
+        if self.dogQueue.peek().order < self.catQueue.peek().order
+            return self.dogQueue
+        else:
+            return self.catQueue
+
+    def dequeueCat(self):
+        if self.catQueue.isEmpty():
+            raise Exception('No more cats available')
+        else:
+            
         
         
 
