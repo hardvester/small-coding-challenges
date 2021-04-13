@@ -4,6 +4,9 @@ class Animal():
     def __init__(self, type, order):
         self.type = type
         self.order = order
+    
+    def getOrder(self):
+        return self.order
 
 class AnimalShelter:
     def __init__(self):
@@ -19,12 +22,12 @@ class AnimalShelter:
         self.order += 1
 
     def dequeueAny(self):
-        if self.dogQueue.isEmpty():
+        if self.dogQueue.isEmpty() and self.catQueue.isEmpty():
+            raise Exception('No more animals in shelter')
+        elif self.dogQueue.isEmpty():
             self.catQueue.remove()
         elif self.catQueue.isEmpty():
             self.dogQueue.remove()
-        elif self.dogQueue.isEmpty() and self.catQueue.isEmpty():
-            raise Exception('No more animals in shelter')
         else:
             if self.catQueue.peek().order < self.dogQueue.peek().order:
                 self.catQueue.remove()
