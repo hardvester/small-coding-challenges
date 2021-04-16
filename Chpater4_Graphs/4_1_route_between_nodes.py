@@ -6,9 +6,13 @@ class Graph:
         self.nodes = {}
 
 class Node:
-    def __init__(self):
+    def __init__(self, name, children = []):
         self.name = name
-        self.children = []
+        self.children = children
 
-print('test')
 
+
+
+if __name__ == "__main__":
+    tree = Node('root', [Node('1st_child'), Node('2nd_child')])
+    print(tree.children[0].name)
