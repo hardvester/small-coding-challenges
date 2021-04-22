@@ -1,4 +1,4 @@
-from stack_implementation_with_list import Stack
+from small_coding_challenges.Chapter3_Stacks_and_Queues.stack_implementation_with_list import Stack
 
 class StackMin(Stack):
     def __init__(self):
