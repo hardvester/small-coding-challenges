@@ -8,7 +8,7 @@ class Queue:
     def remove(self):
         if self.items == []:
             raise Exception('Queue empty')
-        self.items.pop(0)
+        return self.items.pop(0)
     
     def isEmpty(self):
         return self.items == []

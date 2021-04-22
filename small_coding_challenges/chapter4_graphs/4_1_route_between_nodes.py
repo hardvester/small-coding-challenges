@@ -29,34 +29,13 @@ class Graph:
         queue = Queue()
         queue.add(start_node)
         while not queue.isEmpty():
-            current_node = queue.pop()
-            for neighbour in current_node.neighbors:
+            current_node = queue.remove()
+            for neighbour in current_node.neighbours:
                 if neighbour == target_node:
                     return True
                 queue.add(neighbour)
             visited.add(neighbour)
         return False
-
-    '''
-    def breadthfirstsearch(g, start, end):
-    if start == end:
-        return True
-    q = Queue.Queue(len(g.getNodes()))
-    start.visited = True
-    q.put(start)
-    while not q.empty():
-        r = q.get()
-        if r != None:
-            adjacent = r.getAdjacent()
-            for i in range(len(adjacent)):
-                if adjacent[i].visited == False:
-                    if adjacent[i] == end:
-                        return True
-                    else:
-                        q.put(adjacent[i])
-                    adjacent[i].visited = True
-    return False    
-    '''
 
 class Node:
     def __init__(self, name):
@@ -78,16 +57,4 @@ if __name__ == '__main__':
     A.addChild(E)
     A.addChild(B)
     graph.addNodes([A,B,C,D,E])
-    print(graph.isConnectedBFS(A, C))
-
-    # print(graph.isConnectedDFS(A,C))
-    
-
-
-    
-
-
-
-    
-    
-
+    print(graph.isConnectedBFS(B, E))
