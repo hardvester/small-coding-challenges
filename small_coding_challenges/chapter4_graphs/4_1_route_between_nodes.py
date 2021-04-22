@@ -1,4 +1,4 @@
-from Chapter3_Stacks_and_Queues.queue_implementation_with_list import Queue
+from queue_implementation import Queue
 
 class Graph:
     def __init__(self):
@@ -78,6 +78,8 @@ if __name__ == '__main__':
     A.addChild(E)
     A.addChild(B)
     graph.addNodes([A,B,C,D,E])
+    print(graph.isConnectedBFS(A, C))
+
     # print(graph.isConnectedDFS(A,C))
     
 
