@@ -1,12 +1,5 @@
 from queue_implementation import Queue
 
-class TreeNode:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-        self.level = None
-
 class LLNode:
     def __init__(self, data=None, next=None):
         self.data = data
@@ -16,24 +9,41 @@ class LinkedList:
     def __init__(self, head=None):
         self.head = head
     
-    def addNodeAtBeginning(self, data):
+    def addNode(self, data):
         self.head = LLNode(data, self.head)
 
-# this algorithm is based on BFS
+class TreeNode:
+    def __init__(self, data, left=None, right=None):
+        self.data = data
+        self.left = left
+        self.right = right
+        self.level = None
 
-def isConnectedBFS(self, node):
-    visited = set()
-    queue = Queue()
-    node.level = 0
-    queue.add(node)
-    while not queue.isEmpty():
-        current_node = queue.remove()
-        addNodeToQueueIfNotNone(current_node.left, visited, queue, current_node.level)
-        addNodeToQueueIfNotNone(current_node.right, visited, queue, current_node.level)
-        # how to incorporate the linked list in this problem
+    def listOfDepths(self, node):
+        visited = set()
+        ll_dict = {}
+        queue = Queue()
+        node.level = 0
+        queue.add(node)
+        while not queue.isEmpty():
+            current_node = queue.remove()
+            if current_node.level in ll_dict:
+                ll_dict[current_node.level].addNode(current_node.data)
+            else:
+                ll_dict[current_node.level] = LinkedList(LLNode(current_node.data))
 
-def addNodeToQueueIfNotNone(Node, visited, queue, current_node):
-    if Node is not None:
-        Node.level = current_node + 1
-        queue.add(Node)
-        visited.add(Node)
+            self.addNodeToQueueIfNotNone(current_node.left, visited, queue, current_node.level)
+            self.addNodeToQueueIfNotNone(current_node.right, visited, queue, current_node.level)
+        return ll_dict
+
+    def addNodeToQueueIfNotNone(self, Node, visited, queue, current_node):
+        if Node is not None:
+            Node.level = current_node + 1
+            queue.add(Node)
+            visited.add(Node)
+
+
+if __name__ == '__main__':
+    root_node = TreeNode('A', TreeNode('B', TreeNode('D'), TreeNode('E')), TreeNode('C'))
+    print(root_node.listOfDepths(root_node)[2].head.data)
+    
