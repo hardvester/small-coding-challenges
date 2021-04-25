@@ -24,6 +24,7 @@ def listOfDepths(node):
     ll_dict = {}
     queue = Queue()
     node.level = 0
+    
     queue.add(node)
     while not queue.isEmpty():
         current_node = queue.remove()
