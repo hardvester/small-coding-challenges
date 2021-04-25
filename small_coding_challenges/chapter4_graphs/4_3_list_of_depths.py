@@ -19,31 +19,31 @@ class TreeNode:
         self.right = right
         self.level = None
 
-    def listOfDepths(self, node):
-        visited = set()
-        ll_dict = {}
-        queue = Queue()
-        node.level = 0
-        queue.add(node)
-        while not queue.isEmpty():
-            current_node = queue.remove()
-            if current_node.level in ll_dict:
-                ll_dict[current_node.level].addNode(current_node.data)
-            else:
-                ll_dict[current_node.level] = LinkedList(LLNode(current_node.data))
+def listOfDepths(node):
+    visited = set()
+    ll_dict = {}
+    queue = Queue()
+    node.level = 0
+    queue.add(node)
+    while not queue.isEmpty():
+        current_node = queue.remove()
+        if current_node.level in ll_dict:
+            ll_dict[current_node.level].addNode(current_node.data)
+        else:
+            ll_dict[current_node.level] = LinkedList(LLNode(current_node.data))
 
-            self.addNodeToQueueIfNotNone(current_node.left, visited, queue, current_node.level)
-            self.addNodeToQueueIfNotNone(current_node.right, visited, queue, current_node.level)
-        return ll_dict
+        addNodeToQueueIfNotNone(current_node.left, visited, queue, current_node.level)
+        addNodeToQueueIfNotNone(current_node.right, visited, queue, current_node.level)
+    return ll_dict
 
-    def addNodeToQueueIfNotNone(self, Node, visited, queue, current_node):
-        if Node is not None:
-            Node.level = current_node + 1
-            queue.add(Node)
-            visited.add(Node)
+def addNodeToQueueIfNotNone(Node, visited, queue, current_node):
+    if Node is not None:
+        Node.level = current_node + 1
+        queue.add(Node)
+        visited.add(Node)
 
 
 if __name__ == '__main__':
     root_node = TreeNode('A', TreeNode('B', TreeNode('D'), TreeNode('E')), TreeNode('C'))
-    print(root_node.listOfDepths(root_node)[2].head.data)
+    print(listOfDepths(root_node))
     
