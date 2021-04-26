@@ -5,25 +5,25 @@ class TreeNode:
         self.right = right
 
 
-def isBalanced(node, extremes, arr, level):
+def isBalanced(node, extr, level):
     # what am I missing ? I need to keep track of the depth of the tree
     if node is not None:
         if node.left is None and node.right is None:
-            arr.append(level)        
-        isBalanced(node.left, extremes, arr, level+1)
-        isBalanced(node.right, extremes, arr, level+1)
+            if extr['max'] is None or level>extr['max']:
+                extr['max'] = level
+            if extr['min'] is None or level<extr['min']:
+                extr['min'] = level          
+        isBalanced(node.left, extr, level+1)
+        isBalanced(node.right, extr, level+1)
             
-def returnFunction(node):
-    extremes = {'max': 0, 'min': 0}
-    arr = []
-    isBalanced(node, extremes, arr, 0)
-    return arr
-    return extremes
-    if extremes['max'] - extremes['min'] > 1:
-        return True
-    else:
+def isBalancedBoolean(node):
+    extr = {'max': None, 'min': None}
+    isBalanced(node, extr, 0)
+    if extr['max'] - extr['min'] > 1:
         return False
+    else:
+        return True
 
 if __name__ == '__main__':
     root_node = TreeNode('A', TreeNode('B'), TreeNode('C', TreeNode('D')))
-    print(returnFunction(root_node))
+    print(isBalancedBoolean(root_node))
