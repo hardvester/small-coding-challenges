@@ -1,2 +1,3 @@
-for i in 'str':
-    print(i)
+str = 'abc'
+
+print(range())
