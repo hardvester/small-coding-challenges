@@ -20,12 +20,10 @@ def balancedHeight(node):
         return -1
     if abs(h1-h2) > 1:
         return -1
-
+    # incrementing by one which expresses the level
     if h1 > h2:
         return h1+1
     return h2+1   
-
-
 
 '''
 def isBalanced(node, extr, level):
