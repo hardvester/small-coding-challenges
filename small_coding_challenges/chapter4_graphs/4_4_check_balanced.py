@@ -16,6 +16,8 @@ def balancedHeight(node):
     h1 = balancedHeight(node.left)
     h2 = balancedHeight(node.right)
 
+    # this will allow to boild up the information that one
+    # of the subtrees is not balanced
     if h1 == -1 or h2 == -1:
         return -1
     if abs(h1-h2) > 1:
