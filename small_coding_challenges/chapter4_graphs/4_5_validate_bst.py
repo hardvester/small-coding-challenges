@@ -12,15 +12,15 @@ class WrapInt:
     def __init__(self):
         self.data = None
 
-def validate_bst(node, wrapint):
+def validate_bst(node, prev_node):
     if node == None:
         return True
-    if not validate_bst(node.left, wrapint):
+    if not validate_bst(node.left, prev_node):
         return False
-    if wrapint.data != None and node.data <= wrapint.data:
+    if prev_node.data != None and node.data <= prev_node.data:
         return False
-    wrapint.data = node.data
-    if not validate_bst(node.right, wrapint):
+    prev_node.data = node.data
+    if not validate_bst(node.right, prev_node):
         return False
     return True
 
